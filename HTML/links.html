@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Página con diferentes herramientas útiles" />
+        <link rel="stylesheet" href="../CSS/reset.css" />
+        <link rel="stylesheet" href="../CSS/styles.css" />
+        <title>Almacén de links</title>
+    </head>
+    <body>
+        <header id="main-header"></header>
+        <div class="links-container">
+            <div id="links-generator" class="card">
+                <h1 class="links-card-h1">Añade tu enlace de interés</h1>
+                <input type="text" id="links-name" value="" placeholder="Nombre de tu enlace" required>
+                <input type="url" id="url-links" value="" placeholder="Pega aqui tu URL" required>
+                <button id="btn-generate-link">Añadir enlace</button>
+            </div>
+            <div id="links-generated-container" class="hide"></div>
+        </div>
+        <script type="module" src="../JS/main.js"></script>
+    </body>
+</html>

@@ -21,6 +21,9 @@ Una vez tengas el proyecto finalizado, también puede ser antes, lo subiras a gi
 
 Vamos a ver que hay que hacer en cada uno de los proyectos:
 
+
+
+
 Reloj digital 24h + Fecha:
 ¿Como funciona?
 Crea un página que tendrá lo siguiente:
@@ -49,6 +52,10 @@ PISTAS PISTAS Y CONSEJOS
 Aquí tienes como usar el constructor de fechas. https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/Date
 Aquí los métodos necesarios para componerlo todo https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Date
 Aquí lo que hace y como funciona setInterval() https://developer.mozilla.org/es/docs/Web/API/setInterval
+
+
+
+
 Generador de contraseñas seguras:
 ¿Como funciona?
 Crea una página que tendrá lo siguiente:
@@ -66,6 +73,10 @@ Símbolos "!@#$%^&*()-_=+"
 PISTAS Y CONSEJOS
 Guarda cada uno de los datos (mayúsculas, minúsculas, símbolos y núemeros) en una variable para poder recorrerlos.
 Usa bucles y condicionales
+
+
+
+
 Listado de links:
 ¿Como funciona?
 Crea una página que tendrá lo siguiente:
@@ -80,6 +91,10 @@ LocalStorage para generar persistencia y guardar esos datos.
 PISTAS Y CONSEJOS
 Guarda el dato en el localStorage a la vez que se crea en el DOM
 Cuando se carga la página el dato del LocalStorage deberá aparecer de inicio
+
+
+
+
 Estación meteorológica:
 ¿Como funciona?
 Crea una página que tendrá lo siguiente:
@@ -104,6 +119,10 @@ La URL base es http cámbiala desde el inicio por https para no tener problemas 
 Usa promesas o ASYNC/AWAIT para crear la asincronía en las peticiopnes fetch
 Piensa si necesitas solo un endpoint o varios. Revisa que trae cada petición.
 Estructura bien tu código
+
+
+
+
 Imagenes random background:
 ¿Como funciona?
 Todas las páginas de tu proyecto tendrán una imagen random de background. Cambiará cada 15 segundos (o el tiempo que decidas).

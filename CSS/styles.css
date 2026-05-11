@@ -14,8 +14,15 @@ body {
     background-color: var(--alabaster-grey);
     font-family: 'Manrope', sans-serif;
 
+    margin: 0;
+    height: 100vh;
+
     display: flex;
     flex-direction: column;
+}
+
+.header-container {
+    flex-shrink: 0;
 }
 
 .card{
@@ -30,7 +37,7 @@ body {
 
 /* ==========================PASSWORD================================= */
 .password-container {
-    height: 100vh;
+    flex-grow: 1;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -80,7 +87,7 @@ body {
 
 /* ==========================CLOCK================================= */
 .clock-container{
-    height: 100vh;
+    flex-grow: 1;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -107,4 +114,107 @@ body {
 #clock-sentence{
     font-size: 20px;
     font-weight: 600;
+}
+
+
+/* ==========================LINKS================================= */
+
+.links-container{
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#links-generator {
+    gap: 12px;
+}
+
+.links-card-h1 {
+    margin-bottom: 24px;
+}
+
+#links-name, #url-links, #btn-generate-link {
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+}
+
+#btn-generate-link {
+    background-color: var(--evergreen);
+    color: white;
+    font-weight: 700;
+    margin-top: 12px;
+}
+
+#btn-generate-link:hover {
+    cursor: pointer;
+}
+
+#links-generator {
+    width: 520px
+}
+
+#links-generated-container {
+    display: flex;
+    flex-wrap: wrap;
+
+    width: 520px;
+    max-height: 456px;
+    margin-top: 24px;
+    
+    overflow-y: auto;
+
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
+
+    gap: 16px;
+
+    background-color: var(--deep-teal);
+    border-radius: 15px;
+    padding: 24px;
+}
+
+#links-generated-container.hide {
+    display: none;
+}
+
+.btnLink {
+    background-color: var(--mint-leaf);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+    border-radius: 15px;
+    border: solid 2px black;
+    font-weight: 600;
+}
+
+.btnLink:hover {
+    cursor: pointer;
+    color: white;
+    border: solid 2px white;
+}
+
+.linkGeneratedContainer {
+    position: relative;
+    display: inline-block;
+}
+
+.btnDelete {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    padding: 4px 8px;
+    z-index: 2;
+    border-radius: 8px;
+}
+
+.btnDelete:hover {
+    cursor: pointer;
+    background-color: red;
+    color: white;
 }
