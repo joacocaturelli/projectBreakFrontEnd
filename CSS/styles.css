@@ -157,25 +157,47 @@ body {
     width: 520px
 }
 
-#links-generated-container {
-    display: flex;
-    flex-wrap: wrap;
-
+.links-generated-container-padding {
+    padding: 24px 10px 24px 24px;
     width: 520px;
     max-height: 456px;
     margin-top: 24px;
+    background-color: var(--deep-teal);
+    border-radius: 15px;
     
-    overflow-y: auto;
+}
+
+#links-generated-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    height: 100%;
+
+    box-sizing: border-box;
 
     justify-content: flex-start;
     align-items: flex-start;
     align-content: flex-start;
 
-    gap: 16px;
+    overflow-y: auto;
 
-    background-color: var(--deep-teal);
-    border-radius: 15px;
-    padding: 24px;
+    padding: 15px 0;
+}
+
+#links-generated-container::-webkit-scrollbar {
+    width: 20px;
+    height: 20px;
+}
+
+#links-generated-container::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    border: 6px solid transparent; 
+    background-clip: padding-box;
+}
+
+#links-generated-container::-webkit-scrollbar-corner {
+    background: transparent; 
 }
 
 #links-generated-container.hide {
@@ -184,13 +206,21 @@ body {
 
 .btnLink {
     background-color: var(--mint-leaf);
-    display: flex;
+
+    display: block;
     justify-content: center;
     align-items: center;
+    
+    max-width: 455px; 
     padding: 24px;
+
     border-radius: 15px;
     border: solid 2px black;
+
     font-weight: 600;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    white-space: nowrap;
 }
 
 .btnLink:hover {
@@ -217,4 +247,111 @@ body {
     cursor: pointer;
     background-color: red;
     color: white;
+}
+
+
+/* ==========================WEATHER================================= */
+
+#weather-container{
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.widget-card { 
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: stretch;
+    width: 100%;
+    max-width: 800px;
+}
+
+.main-temperature-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 100%;
+    gap: 24px;
+}
+
+.location-container {
+    color: white;
+    font-size: 32px;
+}
+
+.weather-location {
+    font-size: 24px;
+}
+
+.weather-condition {
+    font-weight: 600;
+}
+
+.temperature-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.icon-container {
+    flex-grow: 2;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.weather-temperature {
+    color: white;
+    font-size: 112px;
+    font-weight: 700;
+}
+
+.info-container {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.forecast-24hs {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    
+    overflow-x: auto;
+    width: 100%;
+    padding: 15px 0;
+    gap: 16px;
+
+    scroll-padding: 16px;
+}
+
+.forecast-24hs::-webkit-scrollbar {
+    height: 8px;
+}
+
+.forecast-24hs::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    border: 2px solid transparent; 
+    background-clip: padding-box;
+}
+
+.hour-item {
+    flex-shrink: 0; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 100px;
+    color: white;
+    font-weight: 600
+}
+
+.hour-icon {
+    width: 100%;
 }

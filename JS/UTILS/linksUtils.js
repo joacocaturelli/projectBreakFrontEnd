@@ -1,7 +1,8 @@
-const linksContainer = document.getElementById('links-generated-container')
-
-
 export function linksGenerator (linkObj, onDelete) { // Exportamos la funcion para crear los botones de links
+
+    const linksContainer = document.getElementById('links-generated-container') // Guardamos el contenedor en una variable
+
+    if(!linksContainer) return; // Comprobamos que el contenedor exista en la pagina
 
     const  {id, title, link} = linkObj; // Desestructuramos el objeto para obtener el id, el nombre del enlace y la URL
 

@@ -68,7 +68,7 @@ const linksName = document.getElementById('links-name'); // Guardamos el nombre 
 
 const urlLinks = document.getElementById('url-links'); // Guardamos el enlace URL puesto por el usuario
 
-let linksArray = JSON.parse(localStorage.getItem('mis-links')) || [];; // Creamos un array para guardar los enlaces, si ya hay enlaces guardados en el localStorage los cargamos, sino lo inicializamos vacio
+let linksArray = JSON.parse(localStorage.getItem('mis-links')) || []; // Creamos un array para guardar los enlaces, si ya hay enlaces guardados en el localStorage los cargamos, sino lo inicializamos vacio
 
 
 const saveToStorage = () => { // Funcion para guardar el array de enlaces en el localStorage
@@ -83,10 +83,18 @@ const deleteLink = (id) => { // Funcion para eliminar un enlace del array y del 
     saveToStorage(); // Guardamos el array actualizado en el localStorage 
 };
 
-linksArray.forEach(linkObj => { // Si ya hay enlaces guardados en el localStorage, los renderizamos al cargar la pagina
 
-    linksGenerator(linkObj, deleteLink); 
-});
+const linksContainer = document.getElementById('links-generated-container'); // Guardamos el contenedor de links generados
+
+if (linksContainer) { // Comprobamos si esta en la pagina
+
+    linksArray.forEach(linkObj => { // Si ya hay enlaces guardados en el localStorage, los renderizamos al cargar la pagina
+
+        linksGenerator(linkObj, deleteLink); 
+    });
+}
+
+
 
 if (btnLinks) { // Comprobamos que exista el boton
 
@@ -117,3 +125,9 @@ if (btnLinks) { // Comprobamos que exista el boton
         }
     });
 }
+
+//=================WEATHER====================
+
+import { getLocalWeather } from './UTILS/weatherUtils.js' // Importamos la funcion para la app del clima
+
+getLocalWeather()
