@@ -205,6 +205,10 @@ body {
     display: none;
 }
 
+.links-generated-container-padding.hide {
+    display: none;
+}
+
 #links-generator {
     width: 100%;       
     max-width: 520px; 

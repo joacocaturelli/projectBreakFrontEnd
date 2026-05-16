@@ -31,14 +31,24 @@ export function linksGenerator (linkObj, onDelete) { // Exportamos la funcion pa
 
     linksContainer.classList.remove('hide') // Quitamos la clase hide para que se vea el contenedor
 
+    if (!document.body.classList.contains('dashboard-view')) {
+        
+        linksContainer.parentElement.classList.remove('hide')
+    }
+
     btnDeleteLink.addEventListener('click', ()=> { // Añadimos un listener al boton de borrar
             
         linkGeneratedContainer.remove() // Creamos la funcion para elminar la tarjeta con el enlace
         onDelete(id) // Llamamos a la funcion con el id del enlace para eliminarlo del array y del localStorage
 
-       if (linksContainer.children.length === 0) { // Si ya no queda ninguna tarjeta dentro del contenedor
+        if (linksContainer.children.length === 0) { // Si ya no queda ninguna tarjeta dentro del contenedor
 
             linksContainer.classList.add('hide'); // Volvemos a añadir la clase hide
+
+            if (!document.body.classList.contains('dashboard-view')) { // Si no estamos en el dashboard, ocultamos el contenedor padre tambien para que no se vea el titulo de enlaces
+
+                linksContainer.parentElement.classList.add('hide');
+            }
         }
     })
 }
