@@ -3,19 +3,67 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Página con diferentes herramientas útiles" />
+        <meta name="description" content="Dashboard con reloj, clima, generador de contraseñas y gestor de enlaces" />
         <link rel="stylesheet" href="./CSS/reset.css" />
         <link rel="stylesheet" href="./CSS/styles.css" />
         <title>Inicio</title>
     </head>
-    <body>
+    <body class="dashboard-view">
         <header id="main-header"></header>
-        <nav>
-            <a href="./HTML/clock.html">RELOJ</a>
-            <a href="./HTML/passwords.html">GENERADOR DE CONTRASEÑAS</a>
-            <a href="./HTML/links.html">ENLACES DE INTERES</a>
-            <a href="./HTML/weather.html">APLICACIÓN DEL CLIMA</a>
+        <nav class="nav-container">
+            <a href="./HTML/clock.html" class="btn-nav">RELOJ</a>
+            <a href="./HTML/passwords.html" class="btn-nav">GENERADOR DE CONTRASEÑAS</a>
+            <a href="./HTML/links.html" class="btn-nav">ENLACES DE INTERES</a>
+            <a href="./HTML/weather.html" class="btn-nav">APLICACIÓN DEL CLIMA</a>
         </nav>
+
+        <div class="apps-container">
+            <div class="app-clock-container">
+                <div class="clock-container">
+                    <div id="clock-generator" class="card">
+                        <h1 class="clock-card-h1">Hora actual:</h1>
+                        <span id="clock-time"></span>
+                        <span id="clock-date"></span>
+                        <p id="clock-sentence"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="app-weather-container">
+                <div id="weather-container"></div>
+            </div>
+
+            <div class="app-password-container">
+                <div class="password-container">
+                    <div id="password-generator" class="card">
+                        <h1 class="password-card-h1">Generador de Contraseñas</h1>
+                        <label for="lengthPassword">Longitud de la contraseña:</label>
+                        <div class="password-inputs">
+                            <input type="number" id="lengthPassword" name="length" min="12" max="50" value="12">
+                            <button id="btn-generatePassword">Generar Contraseña</button>
+                        </div>
+                        <div id="password-generated-container" class="hide">
+                            <h2>Contraseña generada:</h2>
+                            <span id="resultPassword"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="app-links-container">
+                <div class="links-container">
+                    <div id="links-generator" class="card">
+                        <h1 class="links-card-h1">Añade tu enlace de interés</h1>
+                        <input type="text" id="links-name" value="" placeholder="Nombre de tu enlace" required>
+                        <input type="url" id="url-links" value="" placeholder="Pega aqui tu URL" required>
+                        <button id="btn-generate-link">Añadir enlace</button>
+                    </div>
+                    <div class="links-generated-container-padding">
+                        <div id="links-generated-container" class="hide"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <script type="module" src="./JS/main.js"></script>   
     </body>

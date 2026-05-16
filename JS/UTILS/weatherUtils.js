@@ -45,7 +45,18 @@ const fetchWeather = async (location) => { // Funcion para llamar a la API
 
     } catch (error) {
 
-        console.error('No se pudo obtener el clima', error);
+        console.error('No se pudo obtener el clima', error); // Si ocurre algun error, lo mostramos por consola
+
+        const widget = document.getElementById('weather-container'); // Guardamos el contenedor del widget en una variable
+
+        if (widget) { // Si el contenedor existe, mostramos un mensaje de error dentro del widget para que lo vea el usuario
+            widget.innerHTML = `
+                <div class="card">
+                    <p>⚠️ No se pudo cargar el clima.</p>
+                    <p>Comprueba tu conexión e intenta recargar la página.</p>
+                </div>
+            `;
+        }
     }
 }
 
@@ -62,14 +73,13 @@ const renderWeather = (data) => { // Funcion para renderizar el widget
     const tempActual = Math.round(data.current.temp_c);
     const condition = data.current.condition.text;
     const iconActual = `https:${data.current.condition.icon}`;
-    const precipitaciones = data.current.chance_of_rain;
     const humidity = data.current.humidity;
     const viento = data.current.wind_kph;
     const uv = data.current.uv;
-    const rain = data.current.chance_of_rain;
+    const rain = data.forecast.forecastday[0].day.daily_chance_of_rain;
 
     const todayHours = data.forecast.forecastday[0].hour; // Obtenemos el pronostico de hoy
-    const tomorrowHours = data.forecast.forecastday[0].hour; // Obtenemos el pronostico de mañana
+    const tomorrowHours = data.forecast.forecastday[1].hour; // Obtenemos el pronostico de mañana
     const allHours = [...todayHours, ...tomorrowHours]; // Unimos todas las horas en un solo array
 
     const currentHour = new Date().getHours(); // Obtenemos la hora actual del usuario
@@ -110,7 +120,6 @@ const renderWeather = (data) => { // Funcion para renderizar el widget
                             <p class='weather-temperature'>${tempActual}°C</p>
                         </div>
                         <div class='info-container'>
-                            <p class='weather-precipitations'>Precipitaciones: ${precipitaciones}%</p>
                             <p class='weather-rain'>Probabilidad de lluvia: ${rain}%</p>
                             <p class='weather-humidity'>Humedad: ${humidity}%</p>
                             <p class='weather-wind'>Viento: ${viento}Km/h</p>

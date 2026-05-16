@@ -41,7 +41,12 @@ export function passwordsGenerator(length) { // La función recibe la longitud d
         newPassword.push(getRandom(allCharacters)); // Agregamos un carácter aleatorio de cualquier tipo
     }
 
-    newPassword.sort(() => Math.random() - 0.5); // Mezclamos los caracteres para evitar patrones predecibles
+    for (let i = newPassword.length - 1; i > 0; i--) { // Barajamos el array para evitar que los primeros caracteres sean siempre mayúscula, minúscula, número y símbolo
+
+        const j = Math.floor(Math.random() * (i + 1)); // Generamos un índice aleatorio para intercambiar con el índice actual
+
+        [newPassword[i], newPassword[j]] = [newPassword[j], newPassword[i]]; // Intercambiamos los caracteres en los índices i y j
+    }
 
     return newPassword.join(""); // Convertimos el array de caracteres en una cadena y la retornamos
 }

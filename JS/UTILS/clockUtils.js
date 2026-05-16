@@ -3,11 +3,13 @@ function formatTime (num) { // Funcion para formatear la hora
     return String(num).padStart(2, "0"); // Si la longitud del numero es menor a 2 le agregamos el 0 delante
 }
 
-const clockTime = document.getElementById('clock-time');
-
-const clockDate = document.getElementById('clock-date');
-
 export function printTime (phrases) { // Exportamos la funcion para imprimir la hora
+
+    const clockTime = document.getElementById('clock-time'); // Guardamos el contenedor del reloj en una variable
+
+    const clockDate = document.getElementById('clock-date'); // Guardamos el contenedor de la fecha en una variable
+
+    if (!clockTime || !clockDate) return; // Si no existe el contenedor del reloj o de la fecha, salimos de la función
 
     let fechaActual = new Date(); // Creamos el objeto Date con la fecha actual y la guardamos en una variable
 

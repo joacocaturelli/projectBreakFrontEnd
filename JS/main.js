@@ -94,8 +94,6 @@ if (linksContainer) { // Comprobamos si esta en la pagina
     });
 }
 
-
-
 if (btnLinks) { // Comprobamos que exista el boton
 
     btnLinks.addEventListener('click', ()=> { // Le añadimos un listener 
@@ -104,7 +102,9 @@ if (btnLinks) { // Comprobamos que exista el boton
 
         const link = urlLinks.value.trim(); // Guardamos el enlace URL que ingreso el usuario
 
-        if (title && link) { // Comprobamos que los campos no esten vacios
+        const isValidUrl = link.startsWith('http://') || link.startsWith('https://'); // Validamos que el enlace tenga un formato correcto
+
+        if (title && link && isValidUrl) { // Comprobamos que los campos no esten vacios
 
             const newLink = { // Creamos un nuevo objeto 
 
@@ -122,6 +122,9 @@ if (btnLinks) { // Comprobamos que exista el boton
             // Limpiar inputs
             linksName.value = '';
             urlLinks.value = '';
+        } else if (link && !isValidUrl) { // Si el formato del enlace no es correcto, mostramos un mensaje de error
+            
+            alert('Por favor, ingresa una URL válida que comience con http:// o https://');
         }
     });
 }
@@ -131,3 +134,10 @@ if (btnLinks) { // Comprobamos que exista el boton
 import { getLocalWeather } from './UTILS/weatherUtils.js' // Importamos la funcion para la app del clima
 
 getLocalWeather()
+
+
+//===================BACKGROUND======================
+
+import { iniciarAnimacionFondo } from './UTILS/imagesUtils.js' // Importamos la funcion para generar los fondos
+
+iniciarAnimacionFondo() // Renderizamos los fondos
